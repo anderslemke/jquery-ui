@@ -1,12 +1,14 @@
 /*!
  * jQuery UI Daterangepicker @VERSION
- * http://jqueryui.com
+ * by Anders Lemke
+ * Basically a copy of the jquery.ui.datapicker
+ * but renamed to daterangepicker.
  *
  * Copyright 2014 jQuery Foundation and other contributors
  * Released under the MIT license.
  * http://jquery.org/license
  *
- * http://api.jqueryui.com/daterangepicker/
+ * https://github.com/anderslemke/jquery-ui/blob/daterangepicker/ui/daterangepicker.js
  */
 (function( factory ) {
 	if ( typeof define === "function" && define.amd ) {
