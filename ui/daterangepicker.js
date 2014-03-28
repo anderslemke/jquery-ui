@@ -1,8 +1,8 @@
 /*!
  * jQuery UI Daterangepicker @VERSION
  * by Anders Lemke
- * Basically a copy of the jquery.ui.datapicker
- * but renamed to daterangepicker.
+ *
+ * Based on the datepicker, but with range functionality.
  *
  * Copyright 2014 jQuery Foundation and other contributors
  * Released under the MIT license.
