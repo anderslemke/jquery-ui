@@ -99,7 +99,7 @@ function Daterangepicker() {
       // +/-number for offset from today, null for today
     appendText: "", // Display text following the input box, e.g. showing the format
     buttonText: "...", // Text for trigger button
-    dividerText: " - ", // Test that divides the span in the input field
+    rangeDividerText: " - ", // Test that divides the span in the input field
     buttonImage: "", // URL for trigger button image
     buttonImageOnly: false, // True if the image appears alone, false if it appears on a button
     hideIfNoPrevNext: false, // True to hide next/previous month links
@@ -192,6 +192,7 @@ $.extend(Daterangepicker.prototype, {
     var id = target[0].id.replace(/([^A-Za-z0-9_\-])/g, "\\\\$1"); // escape jQuery meta chars
     return {id: id, input: target, // associated target
       selectedDay: 0, selectedMonth: 0, selectedYear: 0, // current selection
+      previousDay: 0, previousMonth: 0, previousYear: 0, // previous selection, used when range
       drawMonth: 0, drawYear: 0, // month being drawn
       inline: inline, // is daterangepicker inline or not
       cur: -1, // variables to track the date range
@@ -719,7 +720,7 @@ $.extend(Daterangepicker.prototype, {
     if (inst.input.val() !== inst.lastVal) {
       try {
         ds = $.daterangepicker.parseInterval($.daterangepicker._get(inst, "dateFormat"),
-          $.daterangepicker._get(inst, "dividerText"),
+          $.daterangepicker._get(inst, "rangeDividerText"),
           (inst.input ? inst.input.val() : null),
           $.daterangepicker._getFormatConfig(inst));
 
@@ -1481,7 +1482,7 @@ $.extend(Daterangepicker.prototype, {
     }
 
     var dateFormat = this._get(inst, "dateFormat"),
-      divider = this._get(inst, "dividerText"),
+      divider = this._get(inst, "rangeDividerText"),
       dates = inst.lastVal = inst.input ? inst.input.val() : null,
       defaultDate = this._getDefaultDate(inst),
       d1 = d2 = defaultDate,
@@ -2028,7 +2029,7 @@ $.extend(Daterangepicker.prototype, {
       if ( d1 == d2 ) {
         return d1;
       } else {
-        return d1+this._get(inst, "dividerText")+d2;
+        return d1+this._get(inst, "rangeDividerText")+d2;
       }
     }else{
       var date = ((typeof day === "object" ? day :
